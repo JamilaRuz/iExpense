@@ -8,7 +8,7 @@
 import SwiftUI
 import Observation
 
-struct ExpenseItem: Identifiable, Codable {
+struct ExpenseItem: Identifiable, Codable, Equatable {
     var id = UUID()
     let name: String
     let type: String
@@ -23,6 +23,14 @@ class Expenses {
                 UserDefaults.standard.set(encoded, forKey: "Items")
             }
         }
+    }
+    
+    var personalItems: [ExpenseItem] {
+        items.filter { $0.type == "Personal"}
+    }
+    
+    var businessItems: [ExpenseItem] {
+        items.filter { $0.type == "Business"}
     }
     
     init() {
@@ -40,24 +48,11 @@ struct ContentView: View {
     @State private var expenses = Expenses()
     @State private var showAddExpense = false
     
-    let localCurrency = Locale.current.currency?.identifier ?? "USD"
-    
     var body: some View {
         NavigationStack {
             List {
-                ForEach(expenses.items, id: \.name) { item in
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(item.name)
-                                .font(.headline)
-                            Text(item.type)
-                        }
-                        Spacer()
-                        Text(item.amount, format: .currency(code: localCurrency))
-                            .style(for: item)
-                    }
-                }
-                .onDelete(perform: removeItems)
+                ExpenseSection(title: "Business", expenses: expenses.businessItems, deleteItems: removeBusinessItems)
+                ExpenseSection(title: "Personal", expenses: expenses.personalItems, deleteItems: removePersonalItems)
             }
             .navigationTitle("iExpenses")
             .toolbar {
@@ -71,13 +66,32 @@ struct ContentView: View {
         }
     }
     
+//    offsets of the specific array (all personal offsets)
+    func removeItems(at offsets: IndexSet, in inputArray: [ExpenseItem]) {
+//        creating empty indexes array
+        var objectsToDelete = IndexSet()
+//        run through indexes in personal array
+        for offset in offsets {
+            let item = inputArray[offset]
+//            take one item, find the index of this item and put this index to index array
+            if let index = expenses.items.firstIndex(of: item) {
+                objectsToDelete.insert(index)
+            }
+        }
+        expenses.items.remove(atOffsets: objectsToDelete)
+    }
+    
+    func removePersonalItems(at offsets: IndexSet) {
+        removeItems(at: offsets, in: expenses.personalItems)
+    }
+    
+    func removeBusinessItems(at offsets: IndexSet) {
+        removeItems(at: offsets, in: expenses.businessItems)
+    }
+    
     func addExpense() {
         let expense = ExpenseItem(name: "Test", type: "Personal", amount: 12.5)
         expenses.items.append(expense)
-    }
-    
-    func removeItems(at offsets: IndexSet) {
-        expenses.items.remove(atOffsets: offsets)
     }
 }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8D1EB2442B9E582E00285053 /* View_ExpenseStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1EB2432B9E582E00285053 /* View_ExpenseStyle.swift */; };
+		8D1EB2462B9F6EE800285053 /* ExpenseSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1EB2452B9F6EE800285053 /* ExpenseSection.swift */; };
 		8D8D2E8E2B8651EB00D4A001 /* iExpenseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8D2E8D2B8651EB00D4A001 /* iExpenseApp.swift */; };
 		8D8D2E902B8651EB00D4A001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8D2E8F2B8651EB00D4A001 /* ContentView.swift */; };
 		8D8D2E922B8651EF00D4A001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D8D2E912B8651EF00D4A001 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		8D1EB2432B9E582E00285053 /* View_ExpenseStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View_ExpenseStyle.swift; sourceTree = "<group>"; };
+		8D1EB2452B9F6EE800285053 /* ExpenseSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseSection.swift; sourceTree = "<group>"; };
 		8D8D2E8A2B8651EB00D4A001 /* iExpense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iExpense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D8D2E8D2B8651EB00D4A001 /* iExpenseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iExpenseApp.swift; sourceTree = "<group>"; };
 		8D8D2E8F2B8651EB00D4A001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			children = (
 				8D8D2E8D2B8651EB00D4A001 /* iExpenseApp.swift */,
 				8D8D2E8F2B8651EB00D4A001 /* ContentView.swift */,
+				8D1EB2452B9F6EE800285053 /* ExpenseSection.swift */,
 				8D1EB2432B9E582E00285053 /* View_ExpenseStyle.swift */,
 				8DAF90872B9B9A6B00B87D9E /* AddView.swift */,
 				8D8D2E912B8651EF00D4A001 /* Assets.xcassets */,
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D8D2E902B8651EB00D4A001 /* ContentView.swift in Sources */,
+				8D1EB2462B9F6EE800285053 /* ExpenseSection.swift in Sources */,
 				8D1EB2442B9E582E00285053 /* View_ExpenseStyle.swift in Sources */,
 				8D8D2E8E2B8651EB00D4A001 /* iExpenseApp.swift in Sources */,
 				8DAF90882B9B9A6B00B87D9E /* AddView.swift in Sources */,
